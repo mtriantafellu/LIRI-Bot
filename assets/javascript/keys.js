@@ -6,3 +6,11 @@ exports.twitterKeys = {
     access_token_key: '876546945652846592-RrIQdQAKuX4krGfnNa7fq3JQ3OuqM2x',
     access_token_secret: '	2Ji1QyZ0pq7V4dYgxdNcbwFwGl3IzyjGTJkgGPC94o8lP',
 };
+
+
+var params = {TreeFellOnU: 'nodejs'};
+client.get('statuses/user_timeline', params, function(error, tweets, response) {
+    if (!error) {
+        console.log(tweets);
+    }
+});

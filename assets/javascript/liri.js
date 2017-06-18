@@ -1,5 +1,10 @@
 console.log("Hello Node JS said Liri !!")
 
+var Twitter = require('twitter');
+
+
+
+/*
 //Twitter NPMjs.comls
 var Twitter = require('twitter');
 
@@ -100,3 +105,4 @@ fs.readFile("movies.txt", "utf8", function(error, data) {
         // We will then print the contents of data
         console.log(data);
 }
+*/
