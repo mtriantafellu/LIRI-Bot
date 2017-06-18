@@ -1,0 +1,11 @@
+{
+  "name": "liri-twit",
+  "version": "1.0.0",
+  "description": "did it again here in the java file",
+  "main": "LIRI-Bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
