@@ -1,10 +1,77 @@
 console.log("Hello Node JS said Liri !!")
 
+
+var request = require("request");
+var nodeArgs = process.argv;
+
+// Create an empty variable for holding the movie name
+var movieName = "";
+
+// Loop through all the words in the node argument
+// And do a little for-loop magic to handle the inclusion of "+"s
+for (var i = 2; i < nodeArgs.length; i++) {
+
+    if (i > 2 && i < nodeArgs.length) {
+
+        movieName = movieName + "+" + nodeArgs[i];
+
+    }
+
+    else {
+
+        movieName += nodeArgs[i];
+
+    }
+}
+
+// Then run a request to the OMDB API with the movie specified
+var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=40e9cece";
+
+// This line is just to help us debug against the actual URL.
+console.log(queryUrl);
+
+request(queryUrl, function(error, response, body) {
+
+    // If the request is successful
+    if (!error && response.statusCode === 200) {
+
+        // Parse the body of the site and recover just the imdbRating
+        // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
+        console.log("Release Year: " + JSON.parse(body).Year);
+    }
+});
+
+
+
+//=============TWITTER
+/*
 var Twitter = require('twitter');
 
+//make sure this is the right way to contact keys.js file
+var twitterKeys = require('./keys.js');
+    console.log(twitterKeys);
 
+var client = new Twitter(twitterKeys);
 
+//how to call twitter
+var params = {TreeFellOnU: 'nodejs'};
+    console.log(params);
+
+client.get('statuses/user_timeline', params, function(error, tweets, response) {
+    if (!error) {
+        console.log(tweets);
+    };
+    console.log(tweets);
+});
+*/
 /*
+//Twitter commands:
+get() - search by hastag, location, user
+post() - sending out twitter messages
+stream() - constant connection between bot and twitter
+    - everytime someone mentions @user get feedback
+
+
 //Twitter NPMjs.comls
 var Twitter = require('twitter');
 
