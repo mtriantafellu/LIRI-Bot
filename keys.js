@@ -1,7 +1,13 @@
-console.log('twitterKeys is loaded');
+
+console.log('spotifyKeys is loaded');
+module.exports.spotifyKeys = {
+    id: "9eabd48fd9b045be91c4c7ae3c650e62",
+    secret: "e33888f5a1384c5bbdfdd089713c47a8"
+};
 
 //=============TWITTER
 
+console.log('twitterKeys is loaded');
 //I put in the module before .exports
 module.exports.twitterKeys = {
     consumer_key: ' 31xXy74zejft1HqDgRAUs02DT',

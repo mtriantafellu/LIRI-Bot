@@ -1,5 +1,5 @@
 {
-  "name": "spotifyinit",
+  "name": "secondspotify",
   "version": "1.0.0",
   "description": "only includes twitter",
   "main": "liri.js",
@@ -9,6 +9,7 @@
   "author": "Matt Triantafellu",
   "license": "ISC",
   "dependencies": {
+    "node-spotify-api": "^1.0.5",
     "nodemon": "^1.11.0",
     "oauth": "^0.9.15",
     "spotify": "^0.3.0",

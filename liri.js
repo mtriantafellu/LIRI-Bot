@@ -1,5 +1,6 @@
 console.log("Hello Node JS said Liri !!")
 
+//File System
 var fs = require("fs");
 
 //action covers the word after the file name
@@ -28,7 +29,11 @@ switch (action) {
 
 //============ Spotify
 
-var spotify = require('spotify');
+var Spotify = require('node-spotify-api');
+
+var spotifyKeys = require('./keys.js');
+
+var spotify = new Spotify(spotifyKeys);
 
 function spotify() {
 
@@ -47,33 +52,33 @@ function spotify() {
         }
     } //end for loop
 
-    spotify.search(({type: 'track', query: songName}, function(error, data) {
+        spotify.search({type: 'track', query: songName}, function (err, data) {
+            if (err) {
 
-        if(!error) {
-            for(var i = 0; i < data.tracks.items.length; i++){
-                var dataRetrieved = data.tracks.items[i];
+                return console.log('Error occurred: ' + err);
+            } else {
 
-                //artist name
-                console.log("Artist = " + dataRetrieved.artists[0].name);
+                for (var i = 0; i < data.tracks.items.length; i++) {
+                    var dataRetrieved = data.tracks.items[i];
 
-                //song name
-                console.log("Artist = " + dataRetrieved.name);
+                    //artist name
+                    console.log("Artist = " + dataRetrieved.artists[0].name);
 
-                //preview link of the song from spotify
-                console.log("Artist = " + dataRetrieved.preview_url);
+                    //song name
+                    console.log("Artist = " + dataRetrieved.name);
 
-                //preview link of the song from spotify
-                console.log("Artist = " + dataRetrieved.album.name);
+                    //preview link of the song from spotify
+                    console.log("Artist = " + dataRetrieved.preview_url);
 
-            }
+                    //preview link of the song from spotify
+                    console.log("Artist = " + dataRetrieved.album.name);
+                } //end for loop
 
-        } else {
-            console.log(error);
-        }
+            } // end else
 
-    })//end spotify search
-}; //end spotify function
+        }); // end search
 
+} // end spotify function
 
 
 //============ OMDB
@@ -113,7 +118,7 @@ function omdb() {
         }
     }) //end request function
 
-}; // end movie function
+} // end movie function
 
 //=============TWITTER
 /*
