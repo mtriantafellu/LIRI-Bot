@@ -2,14 +2,12 @@ console.log("Hello Node JS said Liri !!")
 
 var fs = require("fs");
 
-// Take two arguments.
-// The first will be the action (i.e. "deposit", "withdraw", etc.)
-// The second will be the amount that will be added, withdrawn, etc.
+//action covers the word after the file name
 var action = process.argv[2];
+//value covers the word after action
 var value = process.argv[3];
 
-// We will then create a switch-case statement (if-then would also work).
-// The switch-case will direct which function gets run.
+//switch statement to vary which function to call depending on what words are typed
 switch (action) {
     case "my-tweets":
         myTweets();
@@ -28,7 +26,57 @@ switch (action) {
         break;
 }
 
-//============OMDB
+//============ Spotify
+
+var spotify = require('spotify');
+
+function spotify() {
+
+    var nodeArgs = process.argv;
+
+    var songName = '';
+
+    //this is what adds words together
+    for (var i = 3; i < nodeArgs.length; i++) {
+
+        if (i > 3 && i < nodeArgs.length) {
+            songName = songName + "+" + nodeArgs[i];
+        }
+        else {
+            songName += nodeArgs[i];
+        }
+    } //end for loop
+
+    spotify.search(({type: 'track', query: songName}, function(error, data) {
+
+        if(!error) {
+            for(var i = 0; i < data.tracks.items.length; i++){
+                var dataRetrieved = data.tracks.items[i];
+
+                //artist name
+                console.log("Artist = " + dataRetrieved.artists[0].name);
+
+                //song name
+                console.log("Artist = " + dataRetrieved.name);
+
+                //preview link of the song from spotify
+                console.log("Artist = " + dataRetrieved.preview_url);
+
+                //preview link of the song from spotify
+                console.log("Artist = " + dataRetrieved.album.name);
+
+            }
+
+        } else {
+            console.log(error);
+        }
+
+    })//end spotify search
+}; //end spotify function
+
+
+
+//============ OMDB
 //takes user input
 function omdb() {
 
@@ -65,7 +113,7 @@ function omdb() {
         }
     }) //end request function
 
-} // end movie function
+}; // end movie function
 
 //=============TWITTER
 /*

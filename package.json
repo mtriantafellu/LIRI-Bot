@@ -1,5 +1,5 @@
 {
-  "name": "withrequest",
+  "name": "spotifyinit",
   "version": "1.0.0",
   "description": "only includes twitter",
   "main": "liri.js",
@@ -11,6 +11,7 @@
   "dependencies": {
     "nodemon": "^1.11.0",
     "oauth": "^0.9.15",
+    "spotify": "^0.3.0",
     "twitter": "^1.7.1"
   },
   "devDependencies": {},
