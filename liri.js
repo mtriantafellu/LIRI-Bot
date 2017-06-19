@@ -23,12 +23,12 @@ switch (action) {
         break;
 
     case "do-what-it-says":
-        lotto();
+        append();
         break;
 }
 
 //============ Spotify
-
+/*
 var Spotify = require('node-spotify-api');
 
 var spotifyKeys = require('./keys.js');
@@ -79,8 +79,7 @@ function spotify() {
         }); // end search
 
 } // end spotify function
-
-
+*/
 //============ OMDB
 //takes user input
 function omdb() {
@@ -120,49 +119,52 @@ function omdb() {
 
 } // end movie function
 
-//=============TWITTER
 /*
-var twit = require('twit');
-var config = require('./keys.js');
+function twitter() {
+    var twit = require('twit');
+    var config = require('./keys.js');
 
-var Twitter = new twit(config);
+    var Twitter = new twit(config);
 
-var retweet = function() {
-    var params = {
-        q: '#nodejs, #Nodejs',
-        result_type: 'recent',
-        lang: 'en'
+    var retweet = function () {
+        var params = {
+            q: '#nodejs, #Nodejs',
+            result_type: 'recent',
+            lang: 'en'
+        };
+
+        Twitter.get('search/tweets', params, function (err, data) {
+            // if there are no errors
+            if (!err) {
+                id: @
+                TreeFellOnU
+                // grab ID of tweet to retweet
+                var retweetId = data.statuses[0].id_str;
+                // Tell TWITTER to retweet
+                Twitter.post('statuses/retweet/:id', {
+                    id: @TreeFellOnU
+            },
+                function (err, response) {
+                    if (response) {
+                        console.log('Retweeted!!!');
+                    }
+                    // if there was an error while tweeting
+                    if (err) {
+                        console.log('Something went wrong while RETWEETING... Duplication maybe...');
+                    }
+                }
+
+            )}
+
+            // if unable to Search a tweet
+            else {
+                console.log('Something went wrong while SEARCHING...');
+            }
+        });
     };
 
-    Twitter.get('search/tweets', params, function(err, data) {
-        // if there are no errors
-        if (!err) {
-            id: @TreeFellOnU
-            // grab ID of tweet to retweet
-            var retweetId = data.statuses[0].id_str;
-            // Tell TWITTER to retweet
-            Twitter.post('statuses/retweet/:id', {
-                id: @TreeFellOnU
-        }, function(err, response) {
-                if (response) {
-                    console.log('Retweeted!!!');
-                }
-                // if there was an error while tweeting
-                if (err) {
-                    console.log('Something went wrong while RETWEETING... Duplication maybe...');
-                }
-            });
-        }
-        // if unable to Search a tweet
-        else {
-            console.log('Something went wrong while SEARCHING...');
-        }
-    });
 };
 
-retweet();
 */
-
-
 
 
