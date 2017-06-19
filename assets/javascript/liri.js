@@ -4,26 +4,36 @@ console.log("Hello Node JS said Liri !!")
 var request = require('request');
 
 //takes user input
-var nodeArgs = process.argv;
+var nodeArgs = process.argv[3];
 
 var movieName = '';
 
 for (var i = 2; i < nodeArgs.length; i++) {
+
     if (i > 2 && i < nodeArgs.length) {
+        movieName = movieName + "+" + nodeArgs[i];
     }
     else {
         movieName += nodeArgs[i];
     }
-}
+}//end for loop
 
-var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=40e9cece";
+    var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=40e9cece";
 
-request(queryUrl, function(error, response, body) {
-    if (!error && response.statusCode === 200) {
+    request(queryUrl, function (error, response, body) {
+        if (!error && response.statusCode === 200) {
+
+        }
+        console.log('Title of the Movie: ' + JSON.parse(body).Title);
         console.log('Release Year: ' + JSON.parse(body).Year);
-    }
+        console.log('Rating: ' + JSON.parse(body).Rating);
+        console.log('Country of Release: ' + JSON.parse(body).Country);
+        console.log('Language of Release: ' + JSON.parse(body).Language);
+        console.log('Plot of Movie: ' + JSON.parse(body).Plot);
+        console.log('Actors in the Movie: ' + JSON.parse(body).Actors);
 
-});
+    });
+
 
 //=============TWITTER
 /*
