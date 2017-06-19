@@ -1,5 +1,5 @@
 {
-  "name": "first_init",
+  "name": "withrequest",
   "version": "1.0.0",
   "description": "only includes twitter",
   "main": "liri.js",
@@ -12,5 +12,14 @@
     "nodemon": "^1.11.0",
     "oauth": "^0.9.15",
     "twitter": "^1.7.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mtriantafellu/LIRI-Bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mtriantafellu/LIRI-Bot/issues"
+  },
+  "homepage": "https://github.com/mtriantafellu/LIRI-Bot#readme"
 }
