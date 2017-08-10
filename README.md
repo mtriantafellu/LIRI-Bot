@@ -14,3 +14,14 @@ Type the following in the terminal line:  node liri.js my-tweets
 
 Current package:
 
+# Requirements
+
+# Purpose:
+
+# Usage:
+            
+# Future Development:
+
+# Author:
+- Matt Triantafellu
+- UCF Coding BootCamp Summer 2017
