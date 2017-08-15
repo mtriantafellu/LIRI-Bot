@@ -15,6 +15,7 @@ Type the following in the terminal line:  node liri.js my-tweets
 Current package:
 
 # Requirements
+As outlined in homework
 
 # Purpose:
 
